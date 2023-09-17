@@ -1,3 +1,4 @@
+/* COMPANY DATABSE CONTAIN NAME STUDENT ARRAY OF STUDENT ID AND DATE OF INTERVIEW WITH STATUS*/
 const mongoose = require('mongoose');
 
 const CompanySchema = new mongoose.Schema({

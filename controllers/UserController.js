@@ -1,6 +1,8 @@
+// IMPORTING THE ALL DATABASE COLLECTIONS
 const User = require("../models/user");
 const Student = require("../models/student");
 
+// AFTER THE LOGIN PAGE
 module.exports.home = async function(req,res){
 
     if (!req.isAuthenticated()) {
@@ -33,6 +35,7 @@ module.exports.signup = function (req, res) {
   return res.redirect("/");
 };
 
+// CREATE A USER FROM THE SIGNUP DATA
 module.exports.CreateUser = async function (req, res) {
   try {
     if (req.body.password != req.body.confirmpassword) {
@@ -71,6 +74,7 @@ module.exports.CreateSession = function (req, res) {
   return res.redirect("/");
 };
 
+// SIGNOUT
 module.exports.signout = function (req, res) {
   req.logout(function(err) {
     if (err) { return next(err); }

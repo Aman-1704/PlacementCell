@@ -1,3 +1,5 @@
+/* STUDENT DATABSE CONTAIN BASIC DETAILS WITH COURSE SCORE AND COMAPNY NAME ALONG WITH DATE OF INTERVIEW AND STATUS */
+
 const mongoose = require('mongoose');
 
 const StudentSchema = new mongoose.Schema({

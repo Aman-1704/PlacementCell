@@ -1,5 +1,8 @@
+<!-- IMPORTING THE SCRIPT FOR NOTY -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+<!-- SETTING THE HEADER FOR ALL PAGES AFTER CREATE SESSION TRIGGER -->
 <header>
     <nav class="navbar navbar-dark bg-primary">
      <div class="container-fluid">
@@ -8,7 +11,7 @@
          <a class="navbar-brand" href="/">Hello <%=locals.user.name%></a>
          <form class="d-flex">
             <a class="navbar-brand" href="/company/">Company-Dashboard</a>
-            <a class="navbar-brand" href="/users/fetchdata">GET REPORTS</a>
+            <a class="navbar-brand" href="/users/fetchdata">GETREPORTS</a>
             <a class="navbar-brand" href="/users/SignOut">Signout</a>
          </form>
           <% } %>
@@ -17,6 +20,7 @@
 </header>
 
 <script>
+    <!-- SCRIPT FOR SETTING THE FLASH MESSGAE -->
     <% if(flash.success && flash.success.length > 0){%>
         new Noty({
             theme:"relax",

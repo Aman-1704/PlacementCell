@@ -50,7 +50,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
 
-
+//require for flash message
 app.use(flash());
 app.use(flashmiddleware.setFlash);
 

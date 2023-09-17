@@ -1,7 +1,9 @@
+// IMPORTING ALL THE DATABASE COLLECTIONS
 const User = require("../models/user");
 const Student = require("../models/student");
 const Company = require("../models/company");
 
+// CREATE STUDENT FORM 
 module.exports.createreq = async function(req,resp){
 
     try{
@@ -12,6 +14,8 @@ module.exports.createreq = async function(req,resp){
         }
         let studnt=[{}];
 
+        console.log('Adding a new Student ');
+
         return resp.render('createStudent',{studnt});
 
 
@@ -21,6 +25,7 @@ module.exports.createreq = async function(req,resp){
     }
 }
 
+// CREATE STUDENT FROM FORM DATA WITH ALL CHECKS AND SAVE IT TO DATABASE
 module.exports.createStudent = async function(req,resp){
 
     try {
@@ -65,7 +70,7 @@ module.exports.createStudent = async function(req,resp){
 
 }
 
-
+// VIEW STUDENT DETAILS 
 module.exports.viewdata = async function(req,resp){
 
      try {
@@ -84,6 +89,7 @@ module.exports.viewdata = async function(req,resp){
 
 }
 
+// UPDATE FORM OPEN FOR THE RECORDS FOR STUDENT TO BE UPDATED NOT EMAIL
 module.exports.updatereq = async function(req,resp){
 
     try {
@@ -101,6 +107,7 @@ module.exports.updatereq = async function(req,resp){
     }
 }
 
+// UPDATE FORM DATA GET PASSING THROUGH ALL CHECK THEN SAVE IT.
 module.exports.updtedone = async function(req,resp){
 
     try {
@@ -136,7 +143,7 @@ module.exports.updtedone = async function(req,resp){
     }
 }
 
-
+// DELETE THE STUDENT
 module.exports.deletedata = async function(req,resp){
 
   try {

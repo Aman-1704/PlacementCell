@@ -1,6 +1,8 @@
+// IMPORTING THE FS MODULE AND STUDENT COLLECTION
 const Student = require("../models/student");
 const fs = require('fs');
 
+// DOWNLOAD THE FILE AND GENERATE THE REPORTS
 module.exports.downloadfile = async function(req,resp){
 
     try{

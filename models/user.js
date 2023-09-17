@@ -1,3 +1,5 @@
+/* USER DATABSE WHICH HANDLING THE DASHBAORD CONTAIN NAME EMAIL PASSWORD */
+
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({

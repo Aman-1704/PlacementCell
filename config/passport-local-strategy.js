@@ -1,3 +1,5 @@
+//PASSPORT LOCAL STRATEGY WITH SETTING THE USER IN OUR REQUEST
+
 const passport = require('passport');
 const LocalStrategy   = require("passport-local").Strategy;
 

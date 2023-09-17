@@ -1,8 +1,9 @@
+// IMPORTING THE ALL THE DATABASES COLLECTIONS
 const User = require("../models/user");
 const Student = require("../models/student");
 const Company = require("../models/company");
 
-
+// HOMEPAGE FOR COMPANY PORTAL
 module.exports.companyhome =async function(req,resp){
 
      try {
@@ -21,7 +22,7 @@ module.exports.companyhome =async function(req,resp){
      }
 }
 
-
+// ALLOCATE THE INTERVIEW TO STUDENTS I.E FORM IS OPEN
 module.exports.allocateInterview = async function(req,resp){
 
     try {
@@ -47,6 +48,7 @@ module.exports.allocateInterview = async function(req,resp){
     }
 }
 
+// INTERVIEW SCHEDULE TO STUDENT AND SUBMIT WITH DATABSE ADDED
 module.exports.scheduleInterview = async function(req,resp){
 
     try {
@@ -76,6 +78,7 @@ module.exports.scheduleInterview = async function(req,resp){
           for(let std of compny.students)
           {
             if(std.student._id == studentid){
+              req.flash("error", "STUDENT ALREADY INTERVIEW SCHEDULED");
               console.log("Already added");
               return resp.redirect("back");
             }
@@ -108,7 +111,7 @@ module.exports.scheduleInterview = async function(req,resp){
     }
 }
 
-
+// STATUS CHANGES WHICH IS INTERVIEW RESULT
 module.exports.updateRecords = async function(req,resp){
 
   try {

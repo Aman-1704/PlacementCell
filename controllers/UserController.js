@@ -36,6 +36,7 @@ module.exports.signup = function (req, res) {
 module.exports.CreateUser = async function (req, res) {
   try {
     if (req.body.password != req.body.confirmpassword) {
+      req.flash("error", "Password doesn't match..Renter..");
       return res.redirect("back");
     }
 
@@ -55,6 +56,7 @@ module.exports.CreateUser = async function (req, res) {
       }
       return res.redirect("/users/login");
     } else {
+      req.flash("error", "E-Mail ID Already present");
       return res.redirect("back");
     }
   } catch (error) {
@@ -65,10 +67,17 @@ module.exports.CreateUser = async function (req, res) {
 
 // sign in and create the session for the user
 module.exports.CreateSession = function (req, res) {
+  req.flash("success", "Yayy !!! Logged In Successfully");
   return res.redirect("/");
 };
 
 module.exports.signout = function (req, res) {
-  req.logout();
-  return res.redirect("/");
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    else{
+      req.flash("success", "Ooops !!! Logged Out Successfully");
+      return res.redirect('/');
+    }
+   
+  });
 };

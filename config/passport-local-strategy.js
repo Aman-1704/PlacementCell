@@ -7,7 +7,7 @@ const User = require('../models/user');
 
 passport.use(new LocalStrategy(
     {
-        usernameField:"email"
+        usernameField:"email",
     }, function (email, password, done) {
         // now find the user and establish identity
         User.findOne({email: email})

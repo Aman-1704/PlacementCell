@@ -7,8 +7,16 @@ const StudentSchema = new mongoose.Schema({
     },
     collegename:{
         type :String ,
-        required:true,
-        uniqe:true
+        required:true
+    },
+    clgplacemnt:{
+        type: String,
+        required: true,
+      },
+    
+    mobilenumber:{
+        type: String,
+        required:true
     },
     email:{
         type: String,
@@ -17,7 +25,6 @@ const StudentSchema = new mongoose.Schema({
     },
     batch:{
         type: String,
-        uniqe: true,
         required: true
     },
     dsascore:{
@@ -36,11 +43,9 @@ const StudentSchema = new mongoose.Schema({
         {
             companyname:{
                 type:String,
-                unique:true
             },
             scheduledate:{
                 type:String,
-                unique:true
             },
             result:{
                 type:String,
@@ -48,7 +53,7 @@ const StudentSchema = new mongoose.Schema({
                     "Selected",
                     "Not Selected",
                     "On Hold",
-                    "Interview Pending"
+                    "Pending"
                 ],
             }
         }

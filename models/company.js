@@ -5,15 +5,15 @@ const CompanySchema = new mongoose.Schema({
         type: String,
         uniqe: true
     },
-    date:{
-        type: String,
-        uniqe: true,
-    },
     students:[
         {
             student:{
                 type:mongoose.Schema.Types.ObjectId,
                 ref:"Student"
+            },
+            date:{
+                type: String,
+                uniqe: true,
             },
             result:{
                 type:String,
@@ -21,7 +21,7 @@ const CompanySchema = new mongoose.Schema({
                     "Selected", 
                     "Not Selected", 
                     "On Hold", 
-                    "Interview Pending"
+                    "Pending"
                 ]
             }
         }

@@ -1,3 +1,4 @@
+require("dotenv").config();
 // Import the express module
 const express = require('express');
 const port = 5001;
@@ -21,7 +22,7 @@ app.set("views", './views');
 app.use(
   session({
     name: "PlacementCell",
-    secret:"placementcelldeploy", // secret key for encryption of cookies, change it everytime you deploy your application on a server
+    secret:process.env.SECRET_KEY, // secret key for encryption of cookies, change it everytime you deploy your application on a server
     saveUninitialized: false,
     resave: false,
     cookie:{

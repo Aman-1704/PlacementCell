@@ -7,5 +7,7 @@ const UserControllers = require('../controllers/UserController');
 
 router.get('/', UserControllers.home);
 router.use('/users', require("./user"));
+router.use('/student',require('./student'));
+router.use("/company", require("./company"));
 
 module.exports = router;

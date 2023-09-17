@@ -1,39 +1,42 @@
 const User = require("../models/user");
+const Student = require("../models/student");
 
-module.exports.home = async function(req,resp){
+module.exports.home = async function(req,res){
 
     if (!req.isAuthenticated()) {
-      return resp.redirect("/users/login");
+      return res.redirect("/users/login");
     }
 
-    return resp.render("home");
+    let students = await Student.find({});
+
+    return res.render("home",{students});
 }
 
 // render the sign In page
-module.exports.login = function (req, resp) {
+module.exports.login = function (req, res) {
 
   if (!req.isAuthenticated()) {
-    return resp.render("signin");
+    return res.render("signin");
   }
 
-  return resp.redirect("/");
+  return res.redirect("/");
 };
 
 
 // render the sign up page
-module.exports.signup = function (req, resp) {
+module.exports.signup = function (req, res) {
 
   if (!req.isAuthenticated()) {
-    return resp.render("signup");
+    return res.render("signup");
   }
 
-  return resp.redirect("/");
+  return res.redirect("/");
 };
 
-module.exports.CreateUser = async function (req, resp) {
+module.exports.CreateUser = async function (req, res) {
   try {
     if (req.body.password != req.body.confirmpassword) {
-      return resp.redirect("back");
+      return res.redirect("back");
     }
 
     const user = await User.findOne({ email: req.body.email });
@@ -48,21 +51,21 @@ module.exports.CreateUser = async function (req, resp) {
 
       if (!newuser) {
         console.log("error in creating new user");
-        return resp.redirect("back");
+        return res.redirect("back");
       }
-      return resp.redirect("/users/login");
+      return res.redirect("/users/login");
     } else {
-      return resp.redirect("back");
+      return res.redirect("back");
     }
   } catch (error) {
     console.log(`Error during submit the sigup form:  ${error}`);
-    resp.redirect("back");
+    res.redirect("back");
   }
 };
 
 // sign in and create the session for the user
-module.exports.CreateSession = function (req, resp) {
-  return resp.redirect("/");
+module.exports.CreateSession = function (req, res) {
+  return res.redirect("/");
 };
 
 module.exports.signout = function (req, res) {

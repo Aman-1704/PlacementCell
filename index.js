@@ -4,7 +4,7 @@ const express = require('express');
 const port = 5001;
 // Create an express app
 const app = express();
-
+const cors = require('cors');
 const db = require('./config/mongoose');
 
 const session = require('express-session');
@@ -13,6 +13,7 @@ const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo');
 
 app.use(express.urlencoded({extended:true}));
+app.use(cors());
 
 // use the ejs template
 app.set("view engine", "ejs");

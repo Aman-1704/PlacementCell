@@ -33,7 +33,7 @@ app.use(
     },
     store: MongoStore.create(
       {
-        mongoUrl:"mongodb://127.0.0.1:27017/Placement_Cell-development",
+        mongoUrl:process.env.DB_CONNECT,
         autoRemove: 'disabled',
         mongooseConnection:db,
         collectionName:"sessions"

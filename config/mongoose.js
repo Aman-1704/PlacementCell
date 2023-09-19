@@ -3,7 +3,7 @@ require("dotenv").config();
 // MONGODB CONNECTION THROUGH MONGOOSE MODULE
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.DB_CONNECT);
+mongoose.connect('mongodb+srv://amansingh60046:Aman1704@acoding1704.zomv0zw.mongodb.net/db');
 
 const db = mongoose.connection;
 

@@ -33,13 +33,13 @@ app.use(
     },
     store: MongoStore.create(
       {
-        mongoUrl:process.env.DB_CONNECT,
+        mongoUrl:'mongodb+srv://amansingh60046:Aman1704@acoding1704.zomv0zw.mongodb.net/db',
         autoRemove: 'disabled',
         mongooseConnection:db,
         collectionName:"sessions"
       },
       function(error){
-        console.log(eroor || "connect mongodb setup is ok");
+        console.log(error || "connect mongodb setup is ok");
       }
     )
   })
